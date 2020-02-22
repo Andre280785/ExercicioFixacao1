@@ -30,8 +30,25 @@ namespace ExercicioDeFixacao1
                     string name = Console.ReadLine();
                     Console.Write("Price: ");
                     double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
+                    Console.Write("Manufacture date (DD/MM/YYYY): ");
+                    DateTime date = DateTime.Parse(Console.ReadLine());
+                    list.Add(new UsedProduct(name, price, date));
+                } else if (resp == 'i')
+                {
+                    Console.Write("Name: ");
+                    string name = Console.ReadLine();
+                    Console.Write("Price: ");
+                    double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    Console.Write("Customs fee: ");
+                    double customsFee = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    list.Add(new ImportProduct(name, price, customsFee));
                 }
+            }
+            Console.WriteLine();
+            Console.WriteLine("PRICE TAGS:");
+            foreach (Product iten in list)
+            {
+                Console.WriteLine(iten.PriceTag());
             }
         }
     }
